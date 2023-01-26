@@ -14,7 +14,22 @@ session_start()
 <body>
 
     <?php
-    $password = $_GET["password"];
+    // $password = $_GET["password"];
+
+    $caratteriPassword = [
+        'abcdefghilmnopqrstuvz',
+        'ABCDEFGHILMNOPQRSTUVZ',
+        '0123456789',
+        '%&!?'
+    ];
+    $password = '';
+    for ($i = 0; $i < 5; $i++) {
+        $attuale = rand(0, 3);
+        $lungValue = strlen($caratteriPassword[$attuale]);
+        $password .= $caratteriPassword[$attuale][rand(0, $lungValue)];
+    }
+
+
     ?>
 
     <main>
@@ -26,8 +41,10 @@ session_start()
         </form>
 
         <span>
+            la password richiesta è:
             <?php
-            echo $_GET["password"];
+            echo $_GET[$password];
+            // echo $password;
             ?>
         </span>
     </main>
