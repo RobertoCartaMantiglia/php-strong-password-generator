@@ -24,27 +24,25 @@ session_start()
     ];
     $password = '';
     for ($i = 0; $i < 5; $i++) {
-        $attuale = rand(0, 3);
+        $attuale = random_int(0, 3);
         $lungValue = strlen($caratteriPassword[$attuale]);
         $password .= $caratteriPassword[$attuale][rand(0, $lungValue)];
     }
-
-
     ?>
 
     <main>
         <h1>Password Generator</h1>
 
         <form action="index.php" method="get">
-            <input type="text" name="password">
+            <input type="number" name="password">
             <button type="submit">genera</button>
         </form>
 
         <span>
             la password richiesta è:
             <?php
-            echo $_GET[$password];
-            // echo $password;
+            // echo $_GET[$password];
+            echo $password;
             ?>
         </span>
     </main>
