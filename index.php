@@ -26,7 +26,7 @@ session_start()
     for ($i = 0; $i < 5; $i++) {
         $attuale = random_int(0, 3);
         $lungValue = strlen($caratteriPassword[$attuale]);
-        $password .= $caratteriPassword[$attuale][rand(0, $lungValue)];
+        $password .= $caratteriPassword[$attuale][random_int(0, $lungValue)];
     }
     ?>
 
